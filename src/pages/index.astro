@@ -1,0 +1,75 @@
+---
+    import Layout from '../layouts/Layout.astro';
+    import Hero from '../components/Hero.astro';
+    import CraneCarousel from '../components/CraneCarousel.astro';
+
+    const craneImages = [
+      '/crane1.jpg',
+      '/crane2.jpg',
+      '/crane3.jpg',
+    ];
+    ---
+
+    <Layout title="Your Crane Company">
+      <Hero />
+      <CraneCarousel images={craneImages} />
+      <main>
+        <section id="services" class="services">
+          <h2>Our Services</h2>
+          <ul>
+            <li>Crane Rental</li>
+            <li>Crane Operation</li>
+            <li>Heavy Lifting</li>
+            <li>Equipment Transport</li>
+          </ul>
+        </section>
+
+        <section id="about" class="about">
+          <h2>About Us</h2>
+          <p>
+            We are a leading crane company with years of experience in providing safe and reliable crane services.
+          </p>
+        </section>
+
+        <section id="contact" class="contact">
+          <h2>Contact Us</h2>
+          <p>Email: info@example.com</p>
+          <p>Phone: 123-456-7890</p>
+        </section>
+      </main>
+    </Layout>
+
+    <style>
+      main {
+        margin: auto;
+        padding: 1rem;
+        width: 800px;
+        max-width: calc(100% - 2rem);
+        color: #333;
+        font-size: 16px;
+        line-height: 1.6;
+      }
+
+      section {
+        margin-bottom: 2rem;
+        padding: 2rem;
+        background-color: #fff;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+
+      h2 {
+        font-size: 2rem;
+        margin-bottom: 1rem;
+        color: #007bff;
+      }
+
+      ul {
+        list-style: none;
+        padding: 0;
+      }
+
+      li {
+        margin-bottom: 0.5rem;
+      }
+    </style>

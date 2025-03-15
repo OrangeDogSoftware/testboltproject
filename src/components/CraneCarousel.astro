@@ -1,0 +1,53 @@
+---
+    import EmblaCarousel from 'embla-carousel-react'
+    import { useState, useEffect, useCallback } from 'react';
+
+    interface Props {
+      images: string[];
+    }
+
+    const { images } = Astro.props;
+    ---
+
+    <div class="embla">
+      <EmblaCarousel slidesToScroll={1} loop={true} >
+        <div class="embla__container">
+          {images.map((img, index) => (
+            <div class="embla__slide" style={`--index: ${index}`} key={index}>
+              <img src={img} alt={`Crane ${index + 1}`} class="embla__slide__img" />
+            </div>
+          ))}
+        </div>
+      </EmblaCarousel>
+    </div>
+
+    <style>
+      .embla {
+        --slide-spacing: 1rem;
+        --slide-size: 100%;
+        padding: 0;
+        max-width: 800px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .embla__container {
+        display: flex;
+        flex-direction: row;
+        margin-left: calc(var(--slide-spacing) * -1);
+      }
+
+      .embla__slide {
+        width: var(--slide-size);
+        min-width: 0;
+        padding-left: var(--slide-spacing);
+        position: relative;
+      }
+
+      .embla__slide__img {
+        display: block;
+        height: auto;
+        max-width: 100%;
+        border-radius: 8px;
+      }
+    </style>
